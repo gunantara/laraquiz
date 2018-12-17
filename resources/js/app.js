@@ -9,6 +9,25 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//importing vue Router globally for webroute
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+//adding vue component
+let routes = [
+    { path: '/admin', component: require('./components/Admin.vue').default },
+    { path: '/audience', component: require('./components/Audience.vue').default },
+    { path: '/createquiz', component: require('./components/Createquiz.vue').default },
+    { path: '/resultquiz', component: require('./components/Resultquiz.vue').default }
+]
+
+//route any path in web with history in laravel
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,7 +39,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +48,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
