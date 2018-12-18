@@ -9,9 +9,42 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//Using VForm library
+import { Form, HasError, AlertError } from 'vform';
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
+//global import for pagination
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 //importing vue Router globally for webroute
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+//importing moment.js
+import moment from 'moment';
+
+//importing progress bar
+import VueProgressBar from 'vue-progressbar'
+//and used it 
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '3px'
+})
+
+//importing sweatalert notification
+import swal from 'sweetalert2'
+window.swal = swal;
+//and used it
+const toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+window.toast = toast;
 
 //adding vue component
 let routes = [
@@ -27,6 +60,19 @@ const router = new VueRouter({
     mode: 'history',
     routes
 })
+
+//adding filter for uppercase each word 
+Vue.filter('Uptext', function (text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+});
+
+//adding filter for timestamp
+Vue.filter('myDate', function (date) {
+    return moment(date).format('MMMM Do YYYY');
+});
+
+//create custom even for http request
+window.Fire = new Vue();
 
 
 /**
