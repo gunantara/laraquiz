@@ -18,7 +18,8 @@ let routes = [
     { path: '/admin', component: require('./components/Admin.vue').default },
     { path: '/audience', component: require('./components/Audience.vue').default },
     { path: '/createquiz', component: require('./components/Createquiz.vue').default },
-    { path: '/resultquiz', component: require('./components/Resultquiz.vue').default }
+    { path: '/resultquiz', component: require('./components/Resultquiz.vue').default },
+    { path: '/profile', component: require('./components/Profile.vue').default }
 ]
 
 //route any path in web with history in laravel

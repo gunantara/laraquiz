@@ -122,12 +122,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <router-link to="/profile" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profile
                 </p>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="{{ route('logout') }}"
