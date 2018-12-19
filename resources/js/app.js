@@ -48,8 +48,8 @@ window.toast = toast;
 
 //adding vue component
 let routes = [
-    { path: '/admin', component: require('./components/Admin.vue').default },
-    { path: '/audience', component: require('./components/Audience.vue').default },
+    { path: '/users', component: require('./components/Users.vue').default },
+    { path: '/admins', component: require('./components/Admins.vue').default },
     { path: '/createquiz', component: require('./components/Createquiz.vue').default },
     { path: '/resultquiz', component: require('./components/Resultquiz.vue').default },
     { path: '/profile', component: require('./components/Profile.vue').default }

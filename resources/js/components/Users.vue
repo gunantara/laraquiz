@@ -6,7 +6,7 @@
           <div class="card-header">
             <h3 class="card-title">
               <i class="fas fa-users-cog"></i>
-              Data Administrator
+              Data Audience
             </h3>
 
             <div class="card-tools">
@@ -28,7 +28,7 @@
                   <th>Register at</th>
                   <th>Modify</th>
                 </tr>
-                <tr v-for="user in users.data" :key="user.type">
+                <tr v-for="user in users.data" :key="user.id">
                   <td>{{user.id}}</td>
                   <td>{{user.name}}</td>
                   <td>{{user.email}}</td>
@@ -111,7 +111,7 @@
                 ></textarea>
                 <has-error :form="form" field="bio"></has-error>
               </div>
-              <!--<div class="form-group">
+              <div class="form-group">
                 <select
                   name="type"
                   v-model="form.type"
@@ -123,7 +123,7 @@
                   <option value="admin">Admin</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
-              </div>-->
+              </div>
               <div class="form-group">
                 <input
                   v-model="form.password"
@@ -161,7 +161,7 @@ export default {
         name: "",
         email: "",
         password: "",
-        type: "admin",
+        type: "",
         bio: "",
         photo: "",
         points: ""
@@ -227,9 +227,7 @@ export default {
       });
     },
     loadUser() {
-      if ((this.form.type = "admin")) {
-        axios.get("api/user").then(({ data }) => (this.users = data));
-      }
+      axios.get("api/user").then(({ data }) => (this.users = data));
     },
     createUser() {
       this.$Progress.start();

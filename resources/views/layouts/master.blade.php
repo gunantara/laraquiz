@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class=" form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fa fa-search"></i>
@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/admin" class="nav-link">
+                <router-link to="/admins" class="nav-link">
                   <i class="fas fa-users-cog nav-icon"></i>
                   <p>
                   Admin 
@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/audience" class="nav-link">
+                <router-link to="/users" class="nav-link">
                   <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                   Audience

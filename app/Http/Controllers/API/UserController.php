@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     /**
@@ -38,7 +39,7 @@ class UserController extends Controller
             'type' => $request['type'],
             'bio' => $request['bio'],
             'photo' => $request['photo'],
-            'password' => Hash::make($request['name'])
+            'password' => Hash::make($request['password'])
         ]);
     }
     public function UpdateProfile(Request $request )
@@ -77,8 +78,9 @@ class UserController extends Controller
         $this->validate($request,[
             'name' => 'required|string|max:191|unique:users,name,'.$user->id,
             'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
-            'password' => 'sometimes|string|min:6'
+            'password' => 'sometimes|min:6'
         ]);
+        $request->merge(['password' => Hash::make($request['password'])]);
         $user->update($request->all());
         return ['message' => 'user updated'];
     }
